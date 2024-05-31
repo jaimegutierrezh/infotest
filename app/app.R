@@ -12,9 +12,12 @@ library(shinyjs)
 library(tidyverse)
 
 # Leer la hoja de Google Sheets
-sheet_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFy-ameQXk6t28oLEGQN8jZ4xS1naprIubUXErAtal8qmdNSz91Q-siZ5hJNtYTfnoRLOL3Vex9B-V/pub?gid=0&single=true&output=csv"
-questions <- read_csv(sheet_url)
+# sheet_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFy-ameQXk6t28oLEGQN8jZ4xS1naprIubUXErAtal8qmdNSz91Q-siZ5hJNtYTfnoRLOL3Vex9B-V/pub?gid=0&single=true&output=csv"
+# questions <- read_csv(sheet_url)
+# 
+# write_csv(questions, "data/questions.csv")
 
+questions <- read_csv("data/questions.csv")
 
 ui <- fluidPage(
   titlePanel("Quiz App"),
@@ -133,3 +136,4 @@ shinyApp(ui, server)
 shinylive::export(appdir = "app", destdir = "docs")
 
 httpuv::runStaticServer("docs", port=8008)
+
